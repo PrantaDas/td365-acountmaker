@@ -5,7 +5,7 @@ import percentage from './percentage.js';
 export const createAccount = async (data = []) => {
   try {
     console.log(chalk.magentaBright('=> Creating account'));
-    if (!data.length > 0) return console.log(chalk.redBright('No accounts found!'));
+    if (!data.length > 0) return console.log(chalk.redBright('=> No accounts found!'));
     console.log(chalk.magentaBright('=> Accounts data found'));
     let accounts = [];
 

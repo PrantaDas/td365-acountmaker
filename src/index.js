@@ -1,4 +1,6 @@
 import * as readline from 'node:readline/promises';
+import clipboard from 'clipboardy';
+import process from 'node:process';
 import { stdin as input, stdout as output } from 'node:process'; import chalk from "chalk";
 import Account from "./utils/account.js";
 import { generateRandomEmail } from "./utils/getEmail.js";
@@ -52,12 +54,14 @@ async function crash() {
       const finalData = data.map(({ email, password, accountId }) => ({ Email: email, Password: password, AccountId: accountId }));
       console.table(finalData);
     }
+    await clipboard.writeSync(JSON.stringify(data, null, 2));
+    console.log(chalk.yellowBright('=> Account Data coppied to clipboard'))
   }
   catch (err) {
     console.log(err);
   }
   finally {
-    rl.close();
+    process.exit(0);
   }
 }
 

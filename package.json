@@ -1,5 +1,11 @@
 {
-  "name": "account-maker",
+  "name": "td365-account-aker-bot",
+  "description": "A bot that opens accounts in traders.td365.com and automatically updated the accounts in database",
+  "author": {
+    "name": "Pranta Das",
+    "email": "prantodas043@gmail.com",
+    "url": "https://github.com/Prantadas7/td365-accountMaker-Bot"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,6 +16,7 @@
   "dependencies": {
     "axios": "^1.5.0",
     "chalk": "^5.3.0",
+    "clipboardy": "^3.0.0",
     "mongoose": "^7.5.0"
   }
 }
