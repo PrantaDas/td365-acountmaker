@@ -2,6 +2,18 @@ import chalk from 'chalk';
 import Account from './account.schema.js';
 import percentage from './percentage.js';
 
+
+/**
+ * Creates accounts in the MongoDB database based on the provided data.
+ *
+ * @async
+ * @function createAccount
+ * @param {Object[]} data - An array of account data objects.
+ * @param {string} data[].email - The email address associated with the account.
+ * @param {string} data[].password - The password for the account.
+ * @param {string} data[].accountId - The unique identifier for the account.
+ * @returns {Promise<Account[]>} A promise that resolves with an array of created Account instances.
+ */
 export const createAccount = async (data = []) => {
   try {
     console.log(chalk.magentaBright('=> Creating account'));

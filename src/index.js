@@ -12,12 +12,31 @@ const rl = readline.createInterface({ input, output });
 
 const api = new Account('https://portal-api.tradenation.com/signup/TD365/auth0/');
 
+/**
+ * Crashes the system by generating and creating multiple accounts using the Trade Nation API and MongoDB.
+ *
+ * @async
+ * @function crash
+ * @throws {Error} Throws an error if any exception occurs during the process.
+ *
+ * @returns {Promise<void>} A promise that resolves once the account creation process is complete.
+ */
 async function crash() {
   try {
     let data = [];
     let mongodbUrl;
+    /**
+     * Number of accounts to be created.
+     *
+     * @type {number}
+     */
     const accountCount = await rl.question(chalk.magentaBright('> How many Account do you need? :  ')) || 1;
 
+    /**
+    * Flag indicating whether to create accounts in MongoDB.
+    *
+    * @type {string}
+    */
     const isMongodb = await rl.question(chalk.magentaBright('> Do you need to create account on MONGODB (y/n)? :  '));
 
     if (isMongodb.toLowerCase() === 'y') {

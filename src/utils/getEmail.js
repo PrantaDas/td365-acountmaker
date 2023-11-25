@@ -1,5 +1,15 @@
 import axios from 'axios';
 
+
+/**
+ * Retrieves a temporary email address from the Temp Mail service.
+ *
+ * @async
+ * @function getTempMail
+ * @throws {Error} Throws an error if the request to Temp Mail fails.
+ * 
+ * @returns {Promise<Object>} A promise that resolves with the data containing the temporary email address.
+ */
 export async function getTempMail() {
     try {
         const response = await axios({
@@ -29,6 +39,14 @@ export async function getTempMail() {
 };
 
 
+/**
+ * Generates a random email address with a gmail.com domain.
+ *
+ * @async
+ * @function generateRandomEmail
+ * 
+ * @returns {Promise<string>} A promise that resolves with the generated random email address.
+ */
 export async function generateRandomEmail() {
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     let email = '';

@@ -1,11 +1,34 @@
 import axios from 'axios';
 
+/**
+ * Represents a class for interacting with the Trade Nation API to manage user accounts.
+ *
+ * @class Account
+ */
 class Account {
     _url;
+
+    /**
+   * Creates an instance of the Account class.
+   *
+   * @constructor
+   * @param {string} _url - The base URL for the Trade Nation API.
+   */
     constructor(_url) {
         this._url = _url;
     }
 
+
+    /**
+     * Initiates the OAuth process to obtain an access token.
+     *
+     * @async
+     * @method oAuth
+     * @param {string} first_name - The first name of the user.
+     * @param {string} last_name - The last name of the user.
+     * @param {string} email - The email address of the user.
+     * @returns {Promise<Object>} A promise that resolves with the OAuth response data.
+     */
     async oAuth(first_name, last_name, email) {
         return axios({
             method: 'POST',
@@ -36,6 +59,18 @@ class Account {
         });
     }
 
+
+    /**
+    * Submits user details for account creation.
+    *
+    * @async
+    * @method submit
+    * @param {string} first_name - The first name of the user.
+    * @param {string} last_name - The last name of the user.
+    * @param {string} email - The email address of the user.
+    * @param {string} access_token - The access token obtained from the OAuth process.
+    * @returns {Promise<Object>} A promise that resolves with the submission response data.
+    */
     async submit(first_name, last_name, email, access_token) {
         return axios({
             method: 'POST',
@@ -90,6 +125,15 @@ class Account {
         })
     }
 
+
+    /**
+     * Obtains a token from the Auth0 service.
+     *
+     * @async
+     * @method getToken
+     * @param {string} username - The username for which to obtain the token.
+     * @returns {Promise<Object>} A promise that resolves with the token response data.
+     */
     async getToken(username) {
         const data = {
             realm: 'Username-Password-Authentication',
@@ -116,6 +160,14 @@ class Account {
     }
 
 
+    /**
+     * Opens a trading account using the provided access token.
+     *
+     * @async
+     * @method openAccount
+     * @param {string} access_token - The access token used for authentication.
+     * @returns {Promise<Object>} A promise that resolves with the response data for opening a trading account.
+     */
     async openAccount(access_token) {
         const data = {
             backend_id: 33,

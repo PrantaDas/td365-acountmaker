@@ -1,3 +1,11 @@
+
+/**
+ * Generates a random first name with a combination of vowels and consonants.
+ *
+ * @function generateRandomFirstName
+ * 
+ * @returns {string} The randomly generated first name.
+ */
 export function generateRandomFirstName() {
     const vowels = 'aeiou';
     const consonants = 'bcdfghjklmnpqrstvwxyz';
@@ -20,6 +28,13 @@ export function generateRandomFirstName() {
     return firstName;
 };
 
+/**
+ * Generates a random last name with a combination of vowels and consonants.
+ *
+ * @function generateRandomLastName
+ * 
+ * @returns {string} The randomly generated last name.
+ */
 export function generateRandomLastName() {
     const vowels = 'aeiou';
     const consonants = 'bcdfghjklmnpqrstvwxyz';
